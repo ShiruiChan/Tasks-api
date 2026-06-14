@@ -1,5 +1,5 @@
 # Конфигурация деплоя для Render (https://render.com)
-# Подключите репозиторий — Render прочитает этот файл автоматически (Blueprint).
+# Подключите репозиторий - Render прочитает этот файл автоматически (Blueprint).
 services:
   - type: web
     name: tasks-api

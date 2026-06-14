@@ -33,7 +33,9 @@ def list_tasks() -> List[dict]:
     return store.list()
 
 
-@app.post("/tasks", response_model=Task, status_code=status.HTTP_201_CREATED, tags=["tasks"])
+@app.post(
+    "/tasks", response_model=Task, status_code=status.HTTP_201_CREATED, tags=["tasks"]
+)
 def create_task(payload: TaskCreate) -> dict:
     """Создать новую задачу."""
     return store.create(payload.title, payload.description)

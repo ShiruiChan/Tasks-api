@@ -22,7 +22,9 @@ def test_list_empty(client):
 
 
 def test_create_task(client):
-    resp = client.post("/tasks", json={"title": "Купить хлеб", "description": "в магазине"})
+    resp = client.post(
+        "/tasks", json={"title": "Купить хлеб", "description": "в магазине"}
+    )
     assert resp.status_code == 201
     body = resp.json()
     assert body["id"] == 1
@@ -59,7 +61,9 @@ def test_get_task_not_found(client):
 
 def test_update_task(client):
     created = client.post("/tasks", json={"title": "Старое"}).json()
-    resp = client.patch(f"/tasks/{created['id']}", json={"title": "Новое", "done": True})
+    resp = client.patch(
+        f"/tasks/{created['id']}", json={"title": "Новое", "done": True}
+    )
     assert resp.status_code == 200
     body = resp.json()
     assert body["title"] == "Новое"
@@ -75,7 +79,7 @@ def test_delete_task(client):
     created = client.post("/tasks", json={"title": "Удалить меня"}).json()
     resp = client.delete(f"/tasks/{created['id']}")
     assert resp.status_code == 204
-    # Повторное получение — 404
+    # Повторное получение - 404
     assert client.get(f"/tasks/{created['id']}").status_code == 404
 
 

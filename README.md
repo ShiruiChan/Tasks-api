@@ -8,8 +8,8 @@
 
 ## Демо
 
-- 🌐 Хостинг: `https://<имя-сервиса>.onrender.com` *(подставьте свою ссылку после деплоя)*
-- 📚 Документация Swagger UI: `https://<имя-сервиса>.onrender.com/docs`
+- Хостинг: `https://tasks-api-v04c.onrender.com`
+- Документация Swagger UI: `https://tasks-api-v04c.onrender.com/docs`
 
 ## Возможности
 
@@ -65,7 +65,7 @@ pip install -r requirements-dev.txt
 uvicorn app.main:app --reload
 ```
 
-Сервис доступен на http://localhost:8000, документация — http://localhost:8000/docs
+Сервис доступен на http://localhost:8000, документация - http://localhost:8000/docs
 
 ### Вариант 2. Через Docker
 
@@ -111,8 +111,8 @@ curl -X PATCH http://localhost:8000/tasks/1 \
 curl -X DELETE http://localhost:8000/tasks/1
 ```
 
-Готовый скрипт со всеми запросами — `examples/requests.sh`.
-Коллекция для Postman — `examples/TasksAPI.postman_collection.json`.
+Готовый скрипт со всеми запросами - `examples/requests.sh`.
+Коллекция для Postman - `examples/TasksAPI.postman_collection.json`.
 
 ## Деплой
 
@@ -142,7 +142,7 @@ pip install -r requirements.txt
 # запустить gunicorn в фоне через screen
 screen -S tasks
 gunicorn app.main:app -k uvicorn.workers.UvicornWorker -b 127.0.0.1:8000
-# Ctrl+A, D — отсоединиться от screen (процесс продолжит работать)
+# Ctrl+A, D - отсоединиться от screen (процесс продолжит работать)
 ```
 
 Конфиг nginx как реверс-прокси:
@@ -162,4 +162,4 @@ server {
 
 ## Автор
 
-Афанасьев Афанасий Егорович — ПМИ-ИИ-23, г. Якутск, 2025.
+Афанасьев Афанасий Егорович - ПМИ-ИИ-23, г. Якутск, 2025.
