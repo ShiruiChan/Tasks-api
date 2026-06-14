@@ -1,0 +1,49 @@
+{
+  "info": {
+    "name": "Tasks API",
+    "description": "Коллекция запросов к учебному Tasks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "base_url", "value": "http://localhost:8000" }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "request": { "method": "GET", "url": "{{base_url}}/health" }
+    },
+    {
+      "name": "List tasks",
+      "request": { "method": "GET", "url": "{{base_url}}/tasks" }
+    },
+    {
+      "name": "Create task",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Сделать проект\",\n  \"description\": \"Тестирование и деплой\"\n}"
+        },
+        "url": "{{base_url}}/tasks"
+      }
+    },
+    {
+      "name": "Get task by id",
+      "request": { "method": "GET", "url": "{{base_url}}/tasks/1" }
+    },
+    {
+      "name": "Update task",
+      "request": {
+        "method": "PATCH",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"done\": true\n}" },
+        "url": "{{base_url}}/tasks/1"
+      }
+    },
+    {
+      "name": "Delete task",
+      "request": { "method": "DELETE", "url": "{{base_url}}/tasks/1" }
+    }
+  ]
+}

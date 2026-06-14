@@ -1,0 +1,10 @@
+# Конфигурация деплоя для Render (https://render.com)
+# Подключите репозиторий — Render прочитает этот файл автоматически (Blueprint).
+services:
+  - type: web
+    name: tasks-api
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app.main:app -k uvicorn.workers.UvicornWorker -b 0.0.0.0:$PORT
+    healthCheckPath: /health
